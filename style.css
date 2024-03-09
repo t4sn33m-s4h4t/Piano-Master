@@ -1,0 +1,83 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  flex-direction: column;
+}
+
+#piano {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+}
+.dis-none{
+  display: none !important;
+}
+.key {
+  width: 60px;
+  height: 240px;
+  border: 1px solid #000;
+  margin: 0 4px;
+  cursor: pointer;
+  border-radius: 5px 5px 0 0;
+  background-color: #f0f0f0;
+}
+
+.white {
+  background-color: #fff;
+}
+
+.black {
+  background-color: #000;
+  position: relative;
+  z-index: 1;
+  margin-top: -90px;
+  width: 50px;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.active{
+  background-color: pink;
+}
+
+
+#main{
+  background-color: #5fac00;
+  color: aqua;
+  width: 100%;
+  height: 100vh;
+  display: ;
+  
+  text-align: center;
+  
+}
+.songs{
+  padding: 40px;
+  display: flex;
+  border: 4px solid greenyellow;
+  background-color: greenyellow;
+
+}
+.song{
+  text-align: center  ;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px 30px ;
+  height: 60px;
+  display: flex;
+  width: 100px;
+  border: 1px solid #290303;
+  margin: 0 20px;
+  cursor: pointer;
+  border-radius: 5px 5px 0 0;
+  background-color: rgb(205, 255, 98);
+  color: #000;
+  transition: 0.3s;
+  align-items:center ;
+  justify-content: center;
+}
+.song:hover{
+  transform: scale(1.2);
+}

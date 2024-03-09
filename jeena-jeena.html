@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piano</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Jeena Jeena By ATIF ASLAM</h1>
+
+  <div  id="piano">
+    <!-- First line -->
+    <div id="a" class="key white" data-note="d4">D4</div>
+    <div id="w" class="key black" data-note="d-4">D#</div>
+    <div id="s" class="key white" data-note="e4">E4</div>
+    <div id="d" class="key white" data-note="f4">F4</div>
+    <div id="r" class="key black" data-note="f-4">F#</div>
+    <div id="f" class="key white" data-note="g4">G4</div>
+    <div id="t" class="key black" data-note="g-4">G#</div>
+    <div id="g" class="key white" data-note="a5">A5</div>
+    <div id="y" class="key black" data-note="a-5">A#</div>
+    <div id="h" class="key white" data-note="b5">B5</div>
+    <div id="j" class="key white" data-note="c5">C5</div>
+    <div id="i" class="key black" data-note="c-5">C#</div>
+    <div id="k" class="key white" data-note="d5">D5</div>
+    <div id="o" class="key black" data-note="d-5">D#</div>
+    <div id="l" class="key white" data-note="e5">E5</div>
+    <div id=";" class="key white" data-note="f5">F5</div>
+    <div id="[" class="key black" data-note="f-5">F#</div>
+</div>
+
+
+  <script>
+      function play_piano(key) {
+    const audio = new Audio(`sounds/${key.dataset.note}.mp3`);
+    audio.currentTime = 0;
+    audio.play();
+    key.classList.add('active');
+
+    setTimeout(function() {
+        key.classList.remove('active');
+    }, 200);
+}
+
+const keys = document.querySelectorAll('.key');
+keys.forEach(key => {
+    key.addEventListener('click', clickKey)
+});
+
+
+    // Add event listener for key presses
+    
+;
+
+const jeena = [
+    'A5', 'A#', 'G4', 'A5', 'F4', 'G4',
+    'A5', 'A#', 'C5', 'A5', 'C5', 'A5', 'G4', 'F4', 'G4',
+    'A5', 'C5', 'D5', 'C5', 'D5', 'C5', 'D5', 'E5', 'D5', 'C5', 'D5', 'E5', 'D5', 'C5', 'C5',
+    'A5', 'C5', 'D5', 'C5', 'D5', 'C5', 'D5', 'C5', 'A5', 'F4', 'G4',
+    'A5', 'C5', 'C5', 'D5', 'C5', 'D5', 'C5', 'D5', 'E5', 'D5', 'C5', 'D5', 'E5', 'D5', 'C5', 'C5',
+    'F4', 'F4', 'F4', 'E5', 'D5', 'C5', 'D5', 'C5', 'C5',
+    'C5', 'A5', 'G4', 'F4', 'G4', 'G4', 'A5', 'G4', 'A5',
+    'F4', 'G4', 'G4', 'A5',
+    'C5', 'A5', 'G4', 'F4', 'G4', 'A5', 'D5', 'C5', 'D5', 'C5', 'A5', 'F4', 'G4',
+    'C5', 'A5', 'G4', 'F4', 'G4', 'G4', 'A5', 'G4', 'A5',
+    'F4', 'G4', 'G4', 'A5',
+    'C5', 'A5', 'G4', 'F4', 'G4', 'A5', 'D5', 'C5', 'D5', 'C5', 'A5', 'F4', 'G4',
+    'A5', 'A#', 'G4', 'A5', 'F4', 'G4',
+    'A5', 'A#', 'C5', 'A5', 'C5', 'A5', 'C5', 'A5', 'G4', 'F4', 'G4',
+    'A5', 'A#', 'G4', 'A5', 'F4', 'G4',
+    'A5', 'A#', 'C5', 'A5', 'C5', 'A5', 'C5', 'A5', 'G4', 'F4', 'G4',
+    'A5'
+];
+
+const noteIds = {
+    'A5': 'g',
+    'A#': 'y',
+    'G4': 'f',
+    'F4': 'd',
+    'C5': 'j',
+    'D5': 'k',
+    'E5': 'l',
+    'C#': 'i',
+    'D#': 'o',
+    'F5': ';',
+    'F#': '['
+};
+
+let currentIndex = 0;
+
+
+
+function clickKey() {
+    note = jeena[currentIndex];
+    key = noteIds[note]
+    console.log(note, key)
+    if (key) {
+        key = document.getElementById(key)
+        
+        play_piano(key);
+    
+    }
+    else{
+        alert('Song Over! Please Reload.')
+        location.reload();
+    }
+    currentIndex = currentIndex + 1
+}
+
+document.addEventListener('keydown', function(event) {
+    clickKey();
+});
+
+  </script>
+</body>
+</html>
